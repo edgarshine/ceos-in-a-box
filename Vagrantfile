@@ -90,4 +90,3 @@ Vagrant.configure("2") do |config|
     sudo -u vagrant cp /vagrant/initial-startup.cfg /home/vagrant/ceos-lab/
     SHELL
 end
-

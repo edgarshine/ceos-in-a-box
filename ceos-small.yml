@@ -1,0 +1,49 @@
+name: ceos-small
+
+topology:
+  kinds:
+    ceos:
+      startup-config: initial-startup.cfg
+    linux:
+      image: ghcr.io/hellt/network-multitool
+  nodes:
+    leaf1:
+      kind: ceos
+      image: ceosimage:latest
+    leaf2:
+      kind: ceos
+      image: ceosimage:latest
+    leaf3:
+      kind: ceos
+      image: ceosimage:latest
+
+    spine1:
+      kind: ceos
+      image: ceosimage:latest
+    spine2:
+      kind: ceos
+      image: ceosimage:latest
+
+    client1:
+      kind: linux
+    client2:
+      kind: linux
+    client3:
+      kind: linux
+
+  links:
+    # leaf to spine
+    - endpoints: ["leaf1:eth2", "spine1:eth3"]
+    - endpoints: ["leaf2:eth2", "spine1:eth4"]
+    - endpoints: ["leaf3:eth2", "spine1:eth5"]
+    - endpoints: ["leaf1:eth3", "spine2:eth3"]
+    - endpoints: ["leaf2:eth3", "spine2:eth4"]
+    - endpoints: ["leaf3:eth3", "spine2:eth5"]
+    # spine mlag
+    - endpoints: ["spine1:eth1", "spine2:eth1"]
+    - endpoints: ["spine1:eth2", "spine2:eth2"]
+
+    # client connection links
+    - endpoints: ["client1:eth1", "leaf1:eth1"]
+    - endpoints: ["client2:eth1", "leaf2:eth1"]
+

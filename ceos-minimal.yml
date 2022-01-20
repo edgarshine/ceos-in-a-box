@@ -1,0 +1,17 @@
+name: ceos-minimal
+
+topology:
+  kinds:
+    ceos:
+      startup-config: initial-startup.cfg
+  nodes:
+    ceos1:
+      kind: ceos
+      image: ceosimage:latest
+    ceos2:
+      kind: ceos
+      image: ceosimage:latest
+
+  links:
+    - endpoints: ["ceos1:eth1", "ceos2:eth1"]
+
