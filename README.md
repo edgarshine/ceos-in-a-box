@@ -30,4 +30,4 @@ Software base para o projeto
 
 ### VMware
 
-- Quando a VM é desativada manualmente, o plugin do Vagrant deixa de funcionar adequdamente. Reiniciar o plugin é uma forma de recuperar a operação da VM: <https://www.vagrantup.com/docs/providers/vmware/vagrant-vmware-utility>
+- Quando a VM é desativada manualmente, o plugin do Vagrant deixa de funcionar adequadamente. Reiniciar o plugin é uma forma de recuperar a operação da VM: <https://www.vagrantup.com/docs/providers/vmware/vagrant-vmware-utility>
