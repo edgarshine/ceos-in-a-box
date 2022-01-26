@@ -75,6 +75,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     yum update -y
     yum install -y epel-release
+    yum -y groupinstall "GNOME Desktop"
     yum-config-manager \
        --add-repo \
        https://download.docker.com/linux/centos/docker-ce.repo
@@ -82,6 +83,8 @@ Vagrant.configure("2") do |config|
     yum install -y git
     yum install -y python3
     yum install -y ansible
+    systemctl set-default graphical.target
+    sudo systemctl start graphical.target
     systemctl start docker
     docker import --change 'VOLUME /mnt/flash' /vagrant/cEOS-lab*.tar.xz ceosimage:latest
     bash -c "$(curl -sL https://get-clab.srlinux.dev)"
