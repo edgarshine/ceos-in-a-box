@@ -84,7 +84,7 @@ Vagrant.configure("2") do |config|
     yum install -y python3
     yum install -y ansible
     systemctl set-default graphical.target
-    sudo systemctl start graphical.target
+    systemctl start graphical.target
     systemctl start docker
     docker import --change 'VOLUME /mnt/flash' /vagrant/cEOS-lab*.tar.xz ceosimage:latest
     bash -c "$(curl -sL https://get-clab.srlinux.dev)"
