@@ -76,6 +76,7 @@ Vagrant.configure("2") do |config|
     yum update -y
     yum install -y epel-release
     yum -y groupinstall "GNOME Desktop"
+    yum install -y terminator
     yum-config-manager \
        --add-repo \
        https://download.docker.com/linux/centos/docker-ce.repo
